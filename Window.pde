@@ -12,7 +12,10 @@ class Window {
   
   void display() {
     // build window
+<<<<<<< HEAD
     noFill();
+=======
+>>>>>>> 9c2b66cbaa4099496c32d4323c0178aa893d8ccb
     rectMode(CENTER);
     rect(x, y, w, h);
     
