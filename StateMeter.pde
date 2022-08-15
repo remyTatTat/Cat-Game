@@ -1,29 +1,23 @@
 class StateMeter {
   
   float c1, c2, c3, c4;
-  int stateVal = 0;
   String stateName;
   
-  int inc = 1;
+  int stateVal;
   
   float r, g, b;
   
-  StateMeter(String tempStateName, float tempC1, float tempC2, float tempC3, float tempC4) {
+  StateMeter(int tempStateVal, String tempStateName, int tempR, int tempG, int tempB, float tempC1, float tempC2, float tempC3, float tempC4) {
+    stateVal = tempStateVal;
     stateName = tempStateName;
     c1 = tempC1;
     c2 = tempC2;
     c3 = tempC3;
     c4 = tempC4;
-    r = 50; g = 100; b = 200;
+    r = tempR; g = tempG; b = tempB;
   }
   
   void display() {
-    stateVal += inc;
-    
-    if (stateVal == 0 || stateVal == 100) {
-      inc *= -1;
-    }
-    
     fill(255);
     textAlign(CENTER);
     text(stateName, c1-35, c2+9);
@@ -31,6 +25,10 @@ class StateMeter {
     rectMode(CORNERS);
     fillMeter();
     displayMeter();
+  }
+   
+  void updateStateVal(int tempStateVal) {
+    stateVal = tempStateVal;
   }
   
   void displayMeter() {
